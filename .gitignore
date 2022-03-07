@@ -31,3 +31,9 @@ Icon
 Network Trash Folder
 Temporary Items
 .apdisk
+
+# Nodejs applications
+node_modules
+
+# PostgreSQL
+**/db-config.json

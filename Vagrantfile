@@ -20,8 +20,8 @@ Vagrant.configure("2") do |config|
         master.vm.hostname = "master-node0#{i}"
         master.vm.network "private_network", ip: IP_NW + "#{IP_START + i - 1 }"
         master.vm.provider "virtualbox" do |vb|
-            vb.memory = 6144
-            vb.cpus = 2
+            vb.memory = 8192
+            vb.cpus = 4
             vb.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
         end
         master.vm.provision "shell", path: "scripts/common.sh"
@@ -35,7 +35,7 @@ Vagrant.configure("2") do |config|
         node.vm.network "private_network", ip: IP_NW + "#{IP_START + NUM_MASTER_NODES + i - 1}"
         node.vm.provider "virtualbox" do |vb|
             vb.memory = 8192
-            vb.cpus = 2
+            vb.cpus = 4
             vb.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
         end
         node.vm.provision "shell", path: "scripts/common.sh"
